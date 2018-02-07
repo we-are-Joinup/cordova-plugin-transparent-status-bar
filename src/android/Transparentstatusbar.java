@@ -11,7 +11,6 @@ import android.view.WindowManager;
 //status bar height reference
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 public class Transparentstatusbar extends CordovaPlugin {
