@@ -28,24 +28,12 @@ public class Transparentstatusbar extends CordovaPlugin {
     }
     
     // A method to find height of the status bar
-        private int getStatusBarHeight() {
-            int height;
-
-            Resources myResources = getResources();
-            int idStatusBarHeight = myResources.getIdentifier(
-                    "status_bar_height", "dimen", "android");
-            if (idStatusBarHeight > 0) {
-                height = getResources().getDimensionPixelSize(idStatusBarHeight);
-                Toast.makeText(this,
-                        "Status Bar Height = " + height,
-                        Toast.LENGTH_LONG).show();
-            } else{
-                height = 0;
-                Toast.makeText(this,
-                        "Resources NOT found",
-                        Toast.LENGTH_LONG).show();
+        public int getStatusBarHeight() {
+            int result = 0;
+            int resourceId = cordova.getActivity().getResources().getIdentifier("status_bar_height", "dimen", "android");
+            if (resourceId > 0) {
+                result = cordova.getActivity().getResources().getDimensionPixelSize(resourceId);
             }
-
-            return height;
+            return result;
         }
 }
