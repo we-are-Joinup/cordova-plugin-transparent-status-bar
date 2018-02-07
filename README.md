@@ -1,4 +1,5 @@
-# This plugin is forked from https://github.com/manugando/cordova-plugin-transparent-status-bar
+# This plugin is forked from 
+https://github.com/manugando/cordova-plugin-transparent-status-bar
 
 # cordova-plugin-transparent-status-bar
 Cordova plugin to enable transparent status bar on Android devices
