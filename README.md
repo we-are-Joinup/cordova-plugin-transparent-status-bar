@@ -10,8 +10,8 @@ Transparentstatusbar.init(function(result) {
   // ....
 });
 ```
-The **result** variable will be:
-* 1 if the status bar is transparent
+The **result** variable returns the value:
+* the height of the statusbar if it is transparent
 * 0 if the status bar is not transparent (Android version < KITKAT)
 * -1 if there was an error
 
