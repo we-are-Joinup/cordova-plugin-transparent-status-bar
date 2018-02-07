@@ -10,6 +10,9 @@ import android.view.Window;
 import android.view.WindowManager;
 //status bar height reference
 import android.content.res.Resources;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 public class Transparentstatusbar extends CordovaPlugin {
 
@@ -26,12 +29,24 @@ public class Transparentstatusbar extends CordovaPlugin {
     }
     
     // A method to find height of the status bar
-        public int getStatusBarHeight() {
-                int result = 0;
-                int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
-                if (resourceId > 0) {
-                        result = getResources().getDimensionPixelSize(resourceId);
-                }
-                return result;
+        private int getStatusBarHeight() {
+            int height;
+
+            Resources myResources = getResources();
+            int idStatusBarHeight = myResources.getIdentifier(
+                    "status_bar_height", "dimen", "android");
+            if (idStatusBarHeight > 0) {
+                height = getResources().getDimensionPixelSize(idStatusBarHeight);
+                Toast.makeText(this,
+                        "Status Bar Height = " + height,
+                        Toast.LENGTH_LONG).show();
+            } else{
+                height = 0;
+                Toast.makeText(this,
+                        "Resources NOT found",
+                        Toast.LENGTH_LONG).show();
+            }
+
+            return height;
         }
 }
