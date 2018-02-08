@@ -37,7 +37,7 @@ public class Transparentstatusbar extends CordovaPlugin {
             return result;
         }
     // A method to get density of device
-        public int getDeviceDensity() {
+        public float getDeviceDensity() {
             float result = 0;
             result = cordova.getActivity().getResources().getDisplayMetrics().density;
             return result;
