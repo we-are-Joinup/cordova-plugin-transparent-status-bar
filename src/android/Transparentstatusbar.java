@@ -10,8 +10,6 @@ import android.view.Window;
 import android.view.WindowManager;
 //status bar height reference
 import android.content.res.Resources;
-import android.os.Bundle;
-import android.widget.Toast;
 
 public class Transparentstatusbar extends CordovaPlugin {
 
@@ -19,7 +17,7 @@ public class Transparentstatusbar extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
         if (action.equals("isTransparent")) {
             boolean result = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
-            int statusBarCssHeight = Math.floor(getStatusBarHeight() / getDeviceDensity());
+            int statusBarCssHeight = (int)Math.floor(getStatusBarHeight() / getDeviceDensity());
             callbackContext.success(result ? statusBarCssHeight : 0);
             return true;
         } else {
