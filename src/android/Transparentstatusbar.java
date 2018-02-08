@@ -19,8 +19,8 @@ public class Transparentstatusbar extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
         if (action.equals("isTransparent")) {
             boolean result = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
-            int statusBarHeight = getStatusBarHeight();
-            callbackContext.success(result ? statusBarHeight : 0);
+            int statusBarCssHeight = getStatusBarHeight() / getDeviceDensity();
+            callbackContext.success(result ? statusBarCssHeight : 0);
             return true;
         } else {
             return false;
@@ -36,4 +36,14 @@ public class Transparentstatusbar extends CordovaPlugin {
             }
             return result;
         }
+    // A method to get density of device
+        public int getDeviceDensity() {
+            float result = 0;
+            result = cordova.getActivity().getResources().getDisplayMetrics().density;
+            return result;
+        }
+    
+    
+    
+    
 }
